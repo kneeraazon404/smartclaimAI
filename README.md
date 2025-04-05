@@ -145,13 +145,25 @@ This project is a web application that allows users to input medical wound care 
 ---
 
 ## 🧪 Example Rule
->
-> **Rule:** Wound must show ≥50% healing after 4 weeks.
-> **Pass:** "Wound healing progress is satisfactory."
-> **Feedback:** "Wound healing progress is satisfactory."
-> **Action:** "Continue current treatment plan."
-> **Fail:** "Wound healing progress is unsatisfactory."
-> **Feedback:** "Wound healing progress is unsatisfactory."
-> **Action:** "Consider alternative treatment options."
-> **Note:** This is a simplified example. Actual rules may vary.
-> **Source:** LCD Novitas Medicare guidelines.
+
+• **Rule:** Wound must show ≥50% healing after 4 weeks.
+
+• **Pass:**
+    - "Wound healing progress is satisfactory."
+
+• **Feedback & Action (Pass):**
+    - "Wound healing progress is satisfactory."
+    - "Continue current treatment plan."
+
+• **Fail:**
+    - "Wound healing progress is unsatisfactory."
+
+• **Feedback & Action (Fail):**
+    - "Wound healing progress is unsatisfactory."
+    - "Consider alternative treatment options."
+
+• **Note:**
+    - This is a simplified example. Actual rules may vary.
+
+• **Source:**
+    - LCD Novitas Medicare guidelines.
