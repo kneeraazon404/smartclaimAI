@@ -9,7 +9,7 @@ This project is a web application that allows users to input medical wound care 
 
 ---
 
-## ✅ Project Tasks Breakdown
+## Project Tasks Breakdown
 
 ### 1. Project Setup (Frontend & Backend)
 
@@ -141,29 +141,3 @@ This project is a web application that allows users to input medical wound care 
 - Export compliance results to PDF.
 - Switch to PostgreSQL or another DB.
 - Add analytics dashboard.
-
----
-
-## 🧪 Example Rule
-
-• **Rule:** Wound must show ≥50% healing after 4 weeks.
-
-• **Pass:**
-    - "Wound healing progress is satisfactory."
-
-• **Feedback & Action (Pass):**
-    - "Wound healing progress is satisfactory."
-    - "Continue current treatment plan."
-
-• **Fail:**
-    - "Wound healing progress is unsatisfactory."
-
-• **Feedback & Action (Fail):**
-    - "Wound healing progress is unsatisfactory."
-    - "Consider alternative treatment options."
-
-• **Note:**
-    - This is a simplified example. Actual rules may vary.
-
-• **Source:**
-    - LCD Novitas Medicare guidelines.
