@@ -146,8 +146,8 @@ This project is a web application that allows users to input medical wound care 
 
 ## 🧪 Example Rule
 >
-> **Rule:** Wound must show ≥50% healing after 4 weeks.  
-> **Check:** `(initial_measurement - current_measurement) / initial_measurement >= 0.5`
+> **Rule:** Wound must show ≥50% healing after 4 weeks.
+> **Pass:** "Wound healing progress is satisfactory."
 > **Feedback:** "Wound healing progress is satisfactory."
 > **Action:** "Continue current treatment plan."
 > **Fail:** "Wound healing progress is unsatisfactory."
@@ -155,4 +155,3 @@ This project is a web application that allows users to input medical wound care 
 > **Action:** "Consider alternative treatment options."
 > **Note:** This is a simplified example. Actual rules may vary.
 > **Source:** LCD Novitas Medicare guidelines.
-> **Link:** [LCD Novitas](https://www.novitas-solutions.com/webcenter/portal/MedicareJL/pagebyid?contentId=00020182)
