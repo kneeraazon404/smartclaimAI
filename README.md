@@ -1,143 +1,36 @@
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# AI-Powered Medical Billing Compliance App
+## Getting Started
 
-This project is a web application that allows users to input medical wound care data and receive real-time compliance feedback based on LCD Novitas Medicare guidelines. It is built using:
+First, run the development server:
 
-- **Frontend:** Next.js + Tailwind CSS
-- **Backend:** Django + Django REST Framework
-- **Database:** SQLite (for now)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Project Tasks Breakdown
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### 1. Project Setup (Frontend & Backend)
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- [ ] Initialize a Next.js project.
-- [ ] Set up Tailwind CSS in the frontend.
-- [ ] Initialize a Django project.
-- [ ] Install Django REST Framework (DRF) and configure it.
-- [ ] Create a Django app (e.g., `checklist`).
-- [ ] Set SQLite in `settings.py` (default).
-- [ ] Test that both servers (Next.js and Django) run without errors.
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-### 2. Input Form Creation (Based on Checklist)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- [ ] Build a form UI in Next.js that mirrors `Checklist.docx`.
-- [ ] Include:
-  - Yes/No toggles or checkboxes.
-  - Text/number fields for dates and measurements.
-  - Dropdowns or free text where needed.
-- [ ] Divide form into sections:
-  - General
-  - DFU (Diabetic Foot Ulcers)
-  - VLU (Venous Stasis Ulcers)
-  - Other Wounds
-- [ ] Use Tailwind CSS for styling.
-- [ ] Manage form state using React (`useState` or form library).
-- [ ] Add client-side validation for required fields.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
----
+## Deploy on Vercel
 
-### 3. Database Modeling & API Endpoints
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- [ ] Create Django models matching all checklist fields.
-- [ ] (Optional) Add models for predefined rules/thresholds.
-- [ ] Run migrations.
-- [ ] Create DRF serializers for form submission.
-- [ ] Create DRF views/viewsets:
-  - POST: Submit form for validation.
-  - GET: (Optional) Fetch past entries or static data.
-- [ ] Register API URLs.
-
----
-
-### 4. Frontend/Backend Integration
-
-- [ ] Add CORS support (`django-cors-headers`).
-- [ ] Set backend URL in frontend (e.g., `.env.local`).
-- [ ] Connect form submission with API (`fetch` or Axios).
-- [ ] Send JSON with proper headers.
-- [ ] Verify communication (fix CORS or network issues if needed).
-
----
-
-### 5. Validation Logic Implementation (from LCD)
-
-- [ ] Parse the LCD Novitas document into rule checks like:
-  - Wound present >4 weeks.
-  - At least 50% improvement.
-  - Adequate circulation (ABI ≥ 0.60 or toe pressure > 30 mmHg).
-  - Clean wound (no infection or osteomyelitis).
-  - Offloading/compression measures in use.
-  - Diabetic diagnosis and management for DFUs.
-  - Smoking cessation documented.
-- [ ] Implement these checks in Django:
-  - Use `serializer.validate()` or custom logic in views.
-- [ ] Return validation results (pass/fail + detailed reasons).
-
----
-
-### 6. Real-Time Feedback Mechanism
-
-- [ ] Add frontend logic to trigger API validation on change.
-- [ ] (Optional) Create a `/validate` endpoint for live validation.
-- [ ] Debounce API calls to reduce spam.
-- [ ] Show validation results:
-  - Green check ✅ for passed fields.
-  - Red ❌ for failed ones with reasons.
-- [ ] Make feedback responsive, clean, and non-blocking.
-
----
-
-### 7. Result Display & Summary
-
-- [ ] Add a summary component to show overall outcome.
-- [ ] Show checklist of:
-  - ✅ Criteria Met
-  - ❌ Criteria Not Met (with reasons)
-- [ ] Use Tailwind to style this clearly.
-- [ ] Make summary update in real-time when form changes.
-
----
-
-### 8. Testing & Polish
-
-- [ ] Write unit tests for validation rules.
-- [ ] Test APIs with Postman or Django Test Client.
-- [ ] Manually test input combos for accuracy.
-- [ ] Fix bugs and polish UI with Tailwind.
-- [ ] Ensure mobile responsiveness and accessibility.
-- [ ] Update README with setup instructions.
-- [ ] (Optional) Prepare for deployment.
-
----
-
-## 📁 Folder Suggestions
-
-- `/frontend` – Next.js app
-- `/backend` – Django + DRF app
-
----
-
-## ⚙️ Tech Stack
-
-| Layer        | Technology         |
-|--------------|--------------------|
-| Frontend     | Next.js + Tailwind |
-| Backend      | Django + DRF       |
-| Database     | SQLite             |
-| Validation   | Based on Medicare LCD rules |
-| Hosting (opt)| Vercel / Render / DigitalOcean |
-
----
-
-## 🚀 Future Improvements (Optional)
-
-- Add authentication (doctors/admin login).
-- Add historical reports.
-- Export compliance results to PDF.
-- Switch to PostgreSQL or another DB.
-- Add analytics dashboard.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

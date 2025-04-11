@@ -1,0 +1,139 @@
+Coverage Indications, Limitations, and/or Medical Necessity
+Notice: It is not appropriate to bill Medicare for services that are not covered (as described by this entire LCD) as if they are covered. When billing for non-covered services, use the appropriate modifier.
+
+Compliance with the provisions in this policy may be monitored and addressed through post payment data analysis and subsequent medical review audits.
+
+History/Background and/or General information
+
+The addition of Skin Substitutes or Cellular or Tissue Based Products (CTPs) to certain wounds may afford a healing advantage over dressings and conservative treatments when these options appear insufficient to affect complete healing. 
+
+There are currently a wide variety of bioengineered products available for soft tissue coverage to affect closure. These products may be derived from allogeneic, xenogeneic, synthetic sources or a combination of any or all of these types of materials. However, without the component of the recipient’s own distinct epithelium and cellular skin elements, permanent skin replacement or coverage by the graft cannot be accomplished.
+
+Autologous skin grafts, also referred to as autografts, are permanent covers that use skin from different parts of the individual’s body. These grafts consist of the epidermis and a dermal component of variable thickness. A split-thickness skin graft (STSG) includes the entire epidermis and a portion of the dermis. A full thickness skin graft (FTSG) includes all layers of the skin. Although autografts are the optimal choice for full thickness wound coverage, areas for skin harvesting may be limited, particularly in cases of large burns or venous stasis ulceration. Harvesting procedures are painful, disfiguring and require additional wound care. 
+
+Allografts which use skin from another human (e.g., cadaver) and Xenografts which use skin from another species (e.g., porcine or bovine) may also be employed as temporary skin replacements, but they must later be replaced by an autograft or the ingrowth of the patient’s own skin.
+
+Bioengineered Skin / Cultured Epidermal Autografts (CEA) are autografts derived from the patient’s own skin cells grown or cultured from very small amounts of skin or hair follicle. Production time is prolonged. One such product is grown on a layer of irradiated mouse cells, bestowing some elements of a xenograft. Wide spread usage has not been available due to limited availability or access to the technology. 
+
+Bioengineered Skin Substitutes or Cellular and Tissue Based Products (CTPs), referred to as Skin Substitutes by CMS, The Current Procedural Terminology (CPT) and The Healthcare Common Procedure Coding Manuals, have been developed in an attempt to circumvent problems inherent with autografts, allografts and xenografts. These constitute biologic covers for refractory wounds with full thickness skin loss secondary to 3rd degree burns or other disease processes such as diabetic neuropathic ulcers and the skin loss of chronic venous stasis or venous hypertension. The production of these biologic skin substitutes or CTPs varies by company and product, but generally involves the creation of immunologically inert biological products containing protein, hormones or enzymes seeded into a matrix which may provide protein or growth factors proposed to stimulate or facilitate healing or promote epithelization. A variety of biosynthetic and tissue-engineered skin substitution products marketed as Human Skin Equivalents (HSE) or Cellular or Tissue-based Products (CTP) are manufactured under an array of trade names and marketed for a variety of indications. All are procured, produced, manufactured, processed and promoted in sufficiently different manners to preclude direct product comparison for equivalency or superiority in randomized controlled trials. Sufficient data is available to establish distinct inferiority to human skin autografts and preclude their designation as skin equivalence.
+
+Bioengineered skin substitutes or CTPs are classified into the following types:
+Human skin allografts derived from donated human skin (cadavers)
+Allogeneic matrices derived from human tissue (fibroblasts or membrane)
+Composite matrices derived from human keratinocytes, fibroblasts and xenogeneic collagen
+Acellular matrices derived from xenogeneic collagen or tissue
+Human Skin Allografts are bioengineered from human skin components and human tissue which have had intact cells removed or treated to avoid immunologic rejection. They are available in different forms promoted to allow scaffolding, soft tissue filling, growth factors and other bioavailable hormonal or enzymatic activity. 
+
+Allogeneic Matrices are usually derived from human neonatal fibroblasts of the foreskin that may contain metabolically active or regenerative components primarily used for soft tissue support, though some have been approved for the treatment of full-thickness skin and soft tissue loss. Most are biodegradable and disappear after 3-4 weeks implantation.
+
+Composite Matrices are derived from human keratinocytes and fibroblasts supported by a scaffold of synthetic mesh or xenogeneic collagen. These are also referred to as human skin equivalent but are unable to be used as autografts due to immunologic rejection or degradation of the living components by the host. Active cellular components continue to generate bioactive compounds and protein that may accelerate wound healing and epithelial regrowth. 
+
+Acellular Matrices are derived from other than human skin and include the majority of bioengineered skin substitutes. All are composed of allogeneic or xenogeneic derived collagen, membrane, or cellular remnants proposed to simulate or exaggerate the characteristics of human skin. All propose to promote healing by the creation of localized intensification of an array of hormonal and enzymatic activity to accelerate closure by migration of native dermal and epithelial components, rather than function as distinctly incorporated tissue closing the skin defect. 
+
+For the purpose of this LCD, consideration is given to the use of dermal or epidermal substitute tissue of human or non-human origin, with or without bioengineered or processed elements, with or without metabolically active elements, with a designated use as coverage for a superficial skin deficit that has persisted, despite optimal wound care for a period of 4 weeks or greater. These products are those referred to as Human Cellular or Tissue Based Products (CTPs) or Skin Substitutes.
+
+Evaluation of the clinical literature indicates that studies comparing the efficacy of bioengineered skin substitute to alternative wound care approaches with patients’ autologous skin are limited in number, apply mainly to generally healthy patients, and examine only a small portion of the skin substitute products available in the United States. Therefore, all products with FDA clearance/approval or designated 361 HCT/P exemption used in accordance with that product’s individualized application guidelines will be equally considered for the purpose of this LCD and may be considered reasonable and necessary.
+
+Regulatory Status
+
+US Food and Drug Administration (FDA) Governing Skin Substitute Products
+
+The U.S. Food and Drug Administration (FDA) does not refer to any product or class of products as “skin substitutes.” However, products commonly described as “skin substitutes” are regulated by FDA under one of the four categories described below depending on the origin and composition of the product and listed as a “Skin Substitute” with a HCPCS code Q41XX.
+Human Cells, Tissues, and Cellular and Tissue-Based Products - Cells and tissues taken from human donors and transplanted to a recipient are regulated under PHS 361 [21 CFR 1270 & 1271]. This regulation describes the rules concerning the use of HCT/Ps for human medical purposes. The final rule, 21 CFR Part 1271, became effective on April 4, 2001, for human tissues intended for transplantation that are regulated under section 361 of the PHS Act and 21 CFR Part 1270. HCT/Ps are regulated by the Center for Biologics Evaluation and Research (CBER). CBER is responsible for regulating biological and related products including blood, vaccines, allergenics, tissues, and cellular and gene therapies. Establishments producing HCT/Ps must register with FDA and list their HCT/Ps. HCT/Ps establishments are not required to demonstrate the safety or effectiveness of their products and FDA does not evaluate the safety or effectiveness of these products.
+Premarket Approval - Premarket approval (PMA) by FDA is the required process of scientific review to ensure the safety and effectiveness of Class III devices. Before Class III devices can be marketed, they must have an approved PMA application. Therefore, wound care products regulated under the PMA process will require evidence that they promote wound healing before they are approved for marketing.
+510(k) Submissions - According to FDA documents a “510(k) is a premarket submission made to FDA to demonstrate that the device to be marketed is at least as safe and effective, that is, substantially equivalent (SE), to a legally marketed device (21 CFR 807.92(a)(3)) that is not subject to PMA." Submitters must compare their device to one or more similar legally marketed devices and make and support their substantial equivalency claims. Unlike PMA, 510(k) confers reasonable assurance of safety and effectiveness via demonstration of substantial equivalence to a legally marketed device that does not require premarket approval. Therefore, wound care products regulated under the 510(k) process will not typically require clinical evidence to establish effectiveness in wound healing, as compared with products regulated under the PMA process in which substantial clinical evidence is always required.
+Humanitarian Device Exemption - An HDE is similar in both form and content to a premarket approval (PMA) application, but is exempt from the effectiveness requirements of a PMA. An HDE application is not required to contain the results of scientifically valid clinical investigations demonstrating that the device is effective for its intended purpose. The applicant must demonstrate that no comparable devices are available to treat or diagnose the disease or condition, and that they could not otherwise bring the device to market. HDE approval is based on evidence of probable benefit in a disease population occurring at a frequency of less than 4,000 patients per year in the United States.
+
+Updated designation and approved usage criteria may be found at: http://www.fda.gov/MedicalDevices/ProductsandMedicalProcedures /DeviceApprovalsandClearances/default.htm
+
+Expanded classification criteria and explanation is included in the HHS/AHRS Final Report, December 18, 2012, entitled Skin Substitutes for Treating Chronic Wounds.
+Per the American Medical Association and the CPT Manual, “Skin Replacement Surgery” or “Skin Substitute Grafting” is a conceptual model focusing on the work and services provided regardless of the product used. This removes the requirement for maintenance and education on the use of supply codes that have little impact on the "typical patient" or the provider effort for application of the product. The application of skin substitute (or CTP) is distinguished according to the wound characteristics and surface area rather than by product description. Currently, no product has demonstrated individual superiority for the treatment of diabetic foot ulcers (DFU) and venous leg ulcers (VLU) of the lower extremity, and, frequently such products are utilized inappropriately.
+
+Non-graft wound dressings are generally included in standard wound care management; such products may provide value and, in fact, may preclude the need for skin substitute application. 
+
+Standard treatment of chronic lower extremity ulcers or skin loss (e.g., DFU or VLU) primarily includes infection and edema control, mechanical offloading, mechanical compression or limb elevation, debridement of necrotic or infected tissue, and management of concomitant and inciting medical issues (blood glucose control, tobacco use). Maintenance of a therapeutic environment with appropriate dressings to preclude further trauma facilitates development of healthy granulation tissue and encourages re-epithelialization. A wound that fails to show evidence of healing by contraction and advancement of epithelial margins following 4 weeks of optimization, including all aspects of standard therapy, is considered a chronic non-healing wound and falls into the auspices of this LCD. The fundamental basis for non-healing of a wound is of paramount importance and must be corrected prior to consideration of additional therapy. 
+
+The depth of skin loss is the determinant of its ability to return. Full thickness skin loss, implying the loss of all elements of the epidermis and dermis, will require re-epithelization of the surface once a clean granular base is established. Both full and partial thickness skin loss may benefit from enhanced products referred to as Skin Substitutes. Though no skin substitutes are capable of replacing the patient’s own skin, they have been demonstrated to allow scaffolding for the growth of epithelium, enzymatic cleansing and provision of growth factors beneficial to deficit reduction and re-epithelization. 
+
+This document addresses the management of chronic non-healing wounds or skin deficits of the lower extremities with the goal of wound and skin closure when standard or conservative measures have failed. While lower extremity ulcers have numerous causes such as burns, trauma, immobility, ischemia or other neurologic impairment, over 90% of the lesions are related to venous stasis disease and diabetic neuropathy. Therefore, the focus of this policy is the application of bioengineered skin substitute material to diabetic foot ulcers and venous leg ulcers of the lower extremities and the reasonable and necessary (R&N) threshold for utilization of skin substitutes. Particular emphasis is placed on the indications for application of bioengineered skin substitute material for DFU and VLU.
+
+Patients receiving a skin substitute graft must be under the care of a physician licensed by the state with full scope of practice for the treatment of the systemic disease process(es) etiologic for the condition (e.g., venous insufficiency, diabetes, neuropathy). This concurrent medical management and the identity of the managing medical physician shall be clearly discernable in the medical record and available upon request.
+
+Medicare coverage for wound care on a continuing basis, for a single wound, in an individual patient is contingent upon evidence documented in the patient’s medical record that the wound is improving in response to the wound care being provided. Since it is neither reasonable nor medically necessary to continue a given type of wound care in the absence of wound improvement, it is expected that the wounds response to treatment will be documented in the medical record at least once every 30 days for each episode of wound treatment and made available to the contractor upon request. 
+
+Documentation of response requires measurements of the initial ulcer, measurements at the completion of at least four weeks of appropriate wound care and measurements immediately prior to placement and with each subsequent placement of the bioengineered skin substitute or CTP.
+
+Definitions per CTP: 
+
+Autografts/tissue cultured autografts: Include the harvest or application of an autologous skin graft.
+
+Skin substitute grafts: Include non-autologous human cellular and tissue products (e.g., dermal or epidermal, cellular and acellular, homograft or allograft), non-human cellular or tissue products (i.e., xenograft), and biological products (synthetic or xenogeneic) that are applied in a sheet over an open wound to augment wound closure or skin growth.
+
+Covered Indications
+
+Chronic Wounds are defined as wounds that do not respond to standard wound treatment for at least a 30 day period during organized comprehensive conservative therapy.
+
+For all wounds, documentation (as outlined in the documentation requirements of the policy) and a comprehensive treatment plan, before initiation of a specialized wound therapy product is required. 
+
+For purposes of this LCD a Failed Response is defined as an ulcer or skin deficit that has failed to respond to documented appropriate wound-care measures, has increased in size or depth, or has not changed in baseline size or depth and has no indication that improvement is likely (such as granulation, epithelialization or progress towards closing). 
+
+Medicare covers application of skin substitutes to Ulcers or Wounds with Failed Response that are:
+Partial- or full-thickness ulcers, not involving tendon, muscle, joint capsule or exhibiting exposed bone or sinus tracts, with a clean granular base;
+Skin deficit at least 1.0 cm² in size;
+Clean and free of necrotic debris or exudate;
+Have adequate circulation/oxygenation to support tissue growth/wound healing as evidenced by physical examination (e.g., Ankle-Brachial Index [ABI] of no less than 0.60, toe pressure greater than 30mm Hg);
+For diabetic foot ulcers, the patient’s medical record reflects a diagnosis of Type 1 or Type 2 Diabetes and also reflects medical management for this condition.
+Wound healing is impaired by the systemic use of tobacco. Therefore, ideally patients who have smoked will have ceased smoking or have refrained from systemic tobacco intake for at least 4 weeks during conservative wound care and prior to planned bioengineered skin replacement therapy.
+
+Documentation (in the pre-service record) specifically addressing circumstances as to why the wound has failed to respond to standard wound care treatment of greater than 4 weeks and must reference specific interventions that have failed. Such record should include updated medication history, review of pertinent medical problems that may have occurred since the previous wound evaluation, and explanation of the planned skin replacement surgery with choice of skin substitute graft product. The procedure risks and complications should also be reviewed and documented. Documentation of smoking cessation counseling and cessation measures prescribed, if applicable, must also be documented in the patient's record. 
+
+Application of a skin substitute graft for lower extremity chronic wound (DFU and VLU) will be covered when the following conditions are met for the individual patient:
+Presence of neuropathic diabetic foot ulcer(s) having failed to respond to documented conservative wound-care measures of greater than four weeks, during which the patient is compliant with recommendations, and without evidence of underlying osteomyelitis or nidus of infection.
+Presence of a venous stasis ulcer for at least 3 months but unresponsive to appropriate wound care for at least 30 days with documented compliance.
+Presence of a full thickness skin loss ulcer that is the result of abscess, injury or trauma that has failed to respond to appropriate control of infection, foreign body, tumor resection, or other disease process for a period of 4 weeks or longer.
+In all wound management the ulcer must be free of infection and underlying osteomyelitis with documentation of the conditions that have been treated and resolved prior to the institution of skin substitute therapy. For purposes of this LCD, appropriate therapy includes, but is not limited to:
+Control of edema, venous hypertension or lymphedema
+Control of any nidus of infection or colonization with bacterial or fungal elements
+Elimination of underlying cellulitis, osteomyelitis, foreign body, or malignant process
+Appropriate debridement of necrotic tissue or foreign body (exposed bone or tendon)
+For diabetic foot ulcers, appropriate non-weight bearing or off-loading pressure
+For venous stasis ulcers, compression therapy provided with documented diligent use of multilayer dressings, compression stockings of greater than 20mmHg pressure, or pneumatic compression
+Provision of wound environment to promote healing (protection from trauma and contaminants, elimination of inciting or aggravating processes)
+Limitations
+
+The following are considered not reasonable and necessary and therefore will be denied:
+
+Due to the propensity for misuse of skin substitute and biological dressing products, reimbursement may be made only when the medical record clearly documents that these products have been used in a comprehensive, organized wound management program. All listed products, unless they are specifically FDA-labeled or cleared for use in the types of wounds being treated, will be considered to be biologic dressings and part of the relevant Evaluation and Management (E/M) service provided and not separately reimbursed. 
+Partial thickness loss with the retention of epithelial appendages is not a candidate for grafting or replacement, as epithelium will repopulate the deficit from the appendages, negating the benefit of overgrafting.
+Skin substitute grafts will be allowed for the episode of wound care in compliance with FDA guidelines for the specific product (see utilization guidelines) not to exceed 10 applications or treatments. In situations where more than one specific product is used, it is expected that the number of applications or treatments will still not exceed 10.
+Simultaneous use of more than one product for the episode of wound is not covered. Product change within the episode of wound is allowed, not to exceed the 10 application limit per wound per 12 week period of care.
+Treatment of any chronic skin wound will typically last no more than twelve (12) weeks.
+Repeat or alternative applications of skin substitute grafts are not considered medically reasonable and necessary when a previous full course of applications was unsuccessful. Unsuccessful treatment is defined as increase in size or depth of an ulcer or no change in baseline size or depth and no sign of improvement or indication that improvement is likely (such as granulation, epithelialization or progress towards closing) for a period of 4 weeks past start of therapy.
+Retreatment of healed ulcers, those showing greater than 75% size reduction and smaller than .5 sq.cm, is not considered medically reasonable and necessary.
+Skin substitute grafts are contraindicated and are not considered reasonable and necessary in patients with inadequate control of underlying conditions or exacerbating factors (e.g., uncontrolled diabetes, active infection, and active Charcot arthropathy of the ulcer extremity, vasculitis or continued tobacco smoking without physician attempt to effect smoking cessation).
+Skin substitute grafts are contraindicated in patients with known hypersensitivity to any component of the specific skin substitute graft (e.g., allergy to avian, bovine, porcine, equine products).
+Repeat use of surgical preparation services (CPT codes 15002, 15003, 15004, and 15005) in conjunction with skin substitute application codes will be considered not reasonable and necessary. It is expected that each wound will require the use of appropriate wound preparation code at least once at initiation of care prior to placement of the skin substitute graft.
+Re-treatment within one (1) year of any given course of skin substitute treatment for a venous stasis ulcer or (diabetic) neuropathic foot ulcer is considered treatment failure and does not meet reasonable and necessary criteria for re-treatment of that ulcer with a skin substitute procedure.
+CMS has guidance regarding other specialized wound treatment technology and specifically addresses platelet rich plasma systems (e.g., Autologet, Magellan); negative pressure wound therapy devices and electro-magnetic/ultrasound/mist therapies. They are not addressed in this LCD as their role in the treatment of the two major types of lower extremity wounds discussed here is limited, for more information on negative pressure wound therapy please see L35125-Wound Care. Utilization remains at the provider’s discretion and must be reasonable and necessary. Note that combination therapy with any bioengineered skin substitute (CTP) will be considered not reasonable and necessary. 
+
+Please Note: Autologous Platelet Rich Plasma (PRP) systems used in the treatment of Chronic Non-Healing Wounds is not considered reasonable and necessary except as described in National Coverage Determination (NCD) for Blood-Derived Products for Chronic Non-Healing Wounds (270.3). Please refer to the NCD for coverage details.
+
+For frequency limitations please refer to the Utilization Guidelines section below. 
+
+Notice: This LCD imposes frequency limitations. There are no automated diagnosis to procedure code limitations established. However, services performed for any given diagnosis must meet all of the indications and limitations stated in this policy, the general requirements for medical necessity as stated in CMS payment policy manuals, any and all existing CMS national coverage determinations, and all Medicare payment rules. 
+
+As published in CMS IOM 100-08, Chapter 13, Section 13.5.1, in order to be covered under Medicare, a service shall be reasonable and necessary. When appropriate, contractors shall describe the circumstances under which the proposed LCD for the service is considered reasonable and necessary under Section 1862(a)(1)(A). Contractors shall consider a service to be reasonable and necessary if the contractor determines that the service is:
+Safe and effective.
+Not experimental or investigational (exception: routine costs of qualifying clinical trial services with dates of service on or after September 19, 2000, that meet the requirements of the Clinical Trials NCD are considered reasonable and necessary).
+Appropriate, including the duration and frequency that is considered appropriate for the service, in terms of whether it is: 
+Furnished in accordance with accepted standards of medical practice for the diagnosis or treatment of the patient’s condition or to improve the function of a malformed body member.
+Furnished in a setting appropriate to the patient’s medical needs and condition.
+Ordered and furnished by qualified personnel.
+One that meets, but does not exceed, the patient’s medical needs.
+At least as beneficial as an existing and available medically appropriate alternative.
+The redetermination process may be utilized for consideration of services performed outside of the reasonable and necessary requirements in this LCD.
+
+
+Summary of Evidence
+
+
