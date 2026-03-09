@@ -1,6 +1,6 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
-import bcrypt from "bcryptjs"
+import { compare } from "bcryptjs"
 import prisma from "./db"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -12,25 +12,36 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
+        console.log("Authorize called with email:", credentials?.email);
         if (!credentials?.email || !credentials?.password) {
+          console.log("Missing email or password");
           return null
         }
 
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email as string }
-        })
+        try {
+          const user = await prisma.user.findUnique({
+            where: { email: credentials.email as string }
+          })
 
-        if (!user || (!user.password)) {
-          return null
-        }
+          console.log("User found in DB:", !!user);
 
-        const passwordsMatch = await bcrypt.compare(
-          credentials.password as string,
-          user.password
-        )
+          if (!user || (!user.password)) {
+            console.log("No user or no password found");
+            return null
+          }
 
-        if (passwordsMatch) {
-          return { id: user.id, name: user.name, email: user.email }
+          const passwordsMatch = await compare(
+            credentials.password as string,
+            user.password
+          )
+
+          console.log("Passwords match:", passwordsMatch);
+
+          if (passwordsMatch) {
+            return { id: user.id, name: user.name, email: user.email }
+          }
+        } catch (error) {
+          console.error("Authorize error:", error);
         }
 
         return null
@@ -43,6 +54,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   session: {
     strategy: "jwt",
   },
+  trustHost: true,
+  secret: process.env.AUTH_SECRET,
   callbacks: {
     async jwt({ token, user }) {
       if (user) {

@@ -1,33 +1,37 @@
-const { PrismaClient } = require('@prisma/client')
-const bcrypt = require('bcryptjs')
+import { PrismaClient } from "@prisma/client";
+import { hash } from "bcryptjs";
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function main() {
-  const hashedPassword = await bcrypt.hash('password123', 10)
-  
-  const user = await prisma.user.upsert({
-    where: { email: 'test@example.com' },
-    update: {
-      password: hashedPassword,
-      name: 'Dr. Test User'
-    },
-    create: {
-      email: 'test@example.com',
-      name: 'Dr. Test User',
-      password: hashedPassword,
-    },
-  })
-  
-  console.log('Seeded database with test user:', user.email)
+  const usernames = ["kneeraazon", "karkidai", "admin"];
+  const hashedPassword = await hash("karki99#$", 10);
+
+  for (const username of usernames) {
+    const email = `${username}@gmail.com`;
+    const user = await prisma.user.upsert({
+      where: { email },
+      update: {
+        password: hashedPassword,
+        name: username,
+      },
+      create: {
+        email,
+        name: username,
+        password: hashedPassword,
+      },
+    });
+
+    console.log("Seeded database with user:", user.email);
+  }
 }
 
 main()
   .then(async () => {
-    await prisma.$disconnect()
+    await prisma.$disconnect();
   })
   .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
