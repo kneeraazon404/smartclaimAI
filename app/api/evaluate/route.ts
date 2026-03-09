@@ -5,16 +5,6 @@ import { zodResponseFormat } from 'openai/helpers/zod'
 import { z } from 'zod'
 import { createClient } from '@supabase/supabase-js'
 
-// Initialize OpenAI
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY!,
-})
-
-// Initialize Supabase
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
 
 // Extended list of fields (including notes)
 const fieldNames = [
@@ -46,6 +36,15 @@ const EvaluationSchema = z.object(
 
 export async function POST(req: NextRequest) {
     try {
+        // Initialize APIs on demand instead of at build time
+        const openai = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY!,
+        })
+        const supabase = createClient(
+            process.env.NEXT_PUBLIC_SUPABASE_URL!,
+            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+        )
+
         const input = await req.json()
         console.log('[INPUT JSON]', JSON.stringify(input, null, 2))
 
