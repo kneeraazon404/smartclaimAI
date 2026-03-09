@@ -46,7 +46,6 @@ export async function POST(req: NextRequest) {
         )
 
         const input = await req.json()
-        console.log('[INPUT JSON]', JSON.stringify(input, null, 2))
 
         const systemPrompt = `
 You are a licensed medical evaluator specializing in wound care. Your task is to assess a wound checklist based on clinical standards and CMS Medicare LCD Novitas guidelines for coverage of Cellular and Tissue-Based Products (CTPs) or skin substitutes.
@@ -81,8 +80,6 @@ Do not omit any fields from the output.
             response_format: zodResponseFormat(EvaluationSchema, 'evaluation')
         })
 
-        console.log('[RAW COMPLETION]', JSON.stringify(completion, null, 2))
-
         let parsed: any
 
         // Try structured output first
@@ -98,7 +95,6 @@ Do not omit any fields from the output.
         if (!parsed && completion.choices?.[0]?.message?.content) {
             try {
                 parsed = JSON.parse(completion.choices[0].message.content)
-                console.log('[FALLBACK PARSED CONTENT]', parsed)
             } catch (jsonError) {
                 console.error('[FALLBACK JSON PARSE ERROR]', jsonError)
             }
@@ -109,8 +105,6 @@ Do not omit any fields from the output.
                 error: 'OpenAI returned an invalid or unstructured response.'
             }, { status: 500 })
         }
-
-        console.log('[OUTPUT JSON]', JSON.stringify(parsed, null, 2))
 
         const { error } = await supabase.from('wound_checklist').insert({
             username: input.username || 'admin',
