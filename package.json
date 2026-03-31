@@ -31,6 +31,7 @@
     "react-hot-toast": "^2.5.2",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
+    "resend": "^6.10.0",
     "tailwind-merge": "^3.5.0",
     "zod": "^3.25.76"
   },
@@ -51,6 +52,5 @@
     "prisma": "^5.22.0",
     "tailwindcss": "^4.2.1",
     "typescript": "^5"
-  },
-  "packageManager": "yarn@4.13.0"
+  }
 }

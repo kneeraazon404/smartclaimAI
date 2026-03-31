@@ -3,6 +3,7 @@
 import { useState, Suspense } from 'react'
 import { signIn } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 import { Target, Lock, Mail, ArrowRight, Loader2 } from 'lucide-react'
 import { motion } from 'framer-motion'
 
@@ -55,19 +56,14 @@ function LoginFormInner() {
       </div>
 
       {error && (
-        <div
-          role="alert"
-          className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm rounded-xl border border-red-100 dark:border-red-900/30 text-center"
-        >
+        <div role="alert" className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm rounded-xl border border-red-100 dark:border-red-900/30 text-center">
           {error}
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-5" noValidate>
         <div className="space-y-1">
-          <label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-300 pl-1">
-            Email
-          </label>
+          <label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-300 pl-1">Email</label>
           <div className="relative">
             <Mail className="absolute left-3.5 top-3 w-5 h-5 text-gray-400 dark:text-gray-500" aria-hidden="true" />
             <input
@@ -84,9 +80,15 @@ function LoginFormInner() {
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="password" className="text-sm font-medium text-gray-700 dark:text-gray-300 pl-1">
-            Password
-          </label>
+          <div className="flex justify-between items-center pl-1">
+            <label htmlFor="password" className="text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
+            <Link
+              href="/forgot-password"
+              className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-sm"
+            >
+              Forgot password?
+            </Link>
+          </div>
           <div className="relative">
             <Lock className="absolute left-3.5 top-3 w-5 h-5 text-gray-400 dark:text-gray-500" aria-hidden="true" />
             <input
@@ -110,15 +112,21 @@ function LoginFormInner() {
           {isLoading ? (
             <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
           ) : (
-            <>
-              Sign In
-              <ArrowRight className="w-5 h-5" aria-hidden="true" />
-            </>
+            <>Sign In <ArrowRight className="w-5 h-5" aria-hidden="true" /></>
           )}
         </button>
       </form>
 
-      <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800/60 text-center">
+      <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800/60 text-center space-y-3">
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          Don&apos;t have an account?{' '}
+          <Link
+            href="/register"
+            className="text-emerald-600 dark:text-emerald-400 font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-sm"
+          >
+            Create one
+          </Link>
+        </p>
         <p className="text-xs text-gray-500 dark:text-gray-400">
           SmartClaimAI is currently in closed evaluation mode.
         </p>

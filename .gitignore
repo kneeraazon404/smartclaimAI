@@ -42,3 +42,8 @@ next-env.d.ts
 /guidelines.txt
 guidelines.txt
 /lib/generated/prisma
+
+# SQLite dev database — contains local user data, never commit
+prisma/dev.db
+prisma/dev.db-journal
+*.db

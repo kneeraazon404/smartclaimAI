@@ -1,9 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, ShieldCheck, Zap } from 'lucide-react'
 import type { Metadata } from 'next'
-import dynamic from 'next/dynamic'
-
-const ChatWidget = dynamic(() => import('@/components/ChatWidget'), { ssr: false })
+import ChatWidgetLoader from '@/components/ChatWidgetLoader'
 
 export const metadata: Metadata = {
   title: {
@@ -116,7 +114,7 @@ export default function Home() {
         </div>
       </section>
 
-      <ChatWidget />
+      <ChatWidgetLoader />
     </div>
   )
 }
