@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hash } from 'bcryptjs'
 import { z } from 'zod'
-import prisma from '@/lib/db'
+import { sql } from '@/lib/db'
 import { validatePasswordResetToken, consumePasswordResetToken } from '@/lib/tokens'
 
 const schema = z.object({
@@ -28,19 +28,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: result.error }, { status: 400 })
     }
 
-    const user = await prisma.user.findUnique({ where: { email: result.email } })
+    const [user] = await sql`SELECT id FROM "User" WHERE email = ${result.email} LIMIT 1`
     if (!user) {
       return NextResponse.json({ error: 'User not found.' }, { status: 404 })
     }
 
     const hashedPassword = await hash(password, 10)
 
-    await prisma.user.update({
-      where: { email: result.email },
-      data: { password: hashedPassword },
-    })
+    await sql`
+      UPDATE "User" SET password = ${hashedPassword}, "updatedAt" = NOW()
+      WHERE email = ${result.email}
+    `
 
-    // Consume token after successful reset
     await consumePasswordResetToken(token)
 
     return NextResponse.json({ message: 'Password reset successfully. You can now sign in.' })

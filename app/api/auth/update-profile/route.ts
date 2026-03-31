@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import prisma from '@/lib/db'
+import { sql } from '@/lib/db'
 import { auth } from '@/lib/auth'
 
 const schema = z.object({
@@ -24,11 +24,11 @@ export async function PUT(req: NextRequest) {
       )
     }
 
-    const updated = await prisma.user.update({
-      where: { id: session.user.id },
-      data: { name: parsed.data.name },
-      select: { id: true, name: true, email: true },
-    })
+    const [updated] = await sql`
+      UPDATE "User" SET name = ${parsed.data.name}, "updatedAt" = NOW()
+      WHERE id = ${session.user.id}
+      RETURNING id, name, email
+    `
 
     return NextResponse.json({ user: updated })
   } catch (err) {

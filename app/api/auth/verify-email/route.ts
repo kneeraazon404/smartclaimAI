@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import prisma from '@/lib/db'
+import { sql } from '@/lib/db'
 import { validateVerificationToken } from '@/lib/tokens'
 
 export async function POST(req: NextRequest) {
@@ -16,7 +16,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: result.error }, { status: 400 })
     }
 
-    const user = await prisma.user.findUnique({ where: { email: result.email } })
+    const [user] = await sql`
+      SELECT id, "emailVerified" FROM "User" WHERE email = ${result.email} LIMIT 1
+    `
 
     if (!user) {
       return NextResponse.json({ error: 'User not found.' }, { status: 404 })
@@ -26,10 +28,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Email already verified.' })
     }
 
-    await prisma.user.update({
-      where: { email: result.email },
-      data: { emailVerified: new Date() },
-    })
+    await sql`
+      UPDATE "User" SET "emailVerified" = NOW(), "updatedAt" = NOW()
+      WHERE email = ${result.email}
+    `
 
     return NextResponse.json({ message: 'Email verified successfully. You can now sign in.' })
   } catch (err) {

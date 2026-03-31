@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hash, compare } from 'bcryptjs'
 import { z } from 'zod'
-import prisma from '@/lib/db'
+import { sql } from '@/lib/db'
 import { auth } from '@/lib/auth'
 
 const schema = z.object({
@@ -31,13 +31,15 @@ export async function PUT(req: NextRequest) {
 
     const { currentPassword, newPassword } = parsed.data
 
-    const user = await prisma.user.findUnique({ where: { id: session.user.id } })
+    const [user] = await sql`
+      SELECT id, password FROM "User" WHERE id = ${session.user.id} LIMIT 1
+    `
 
     if (!user?.password) {
       return NextResponse.json({ error: 'User not found.' }, { status: 404 })
     }
 
-    const passwordsMatch = await compare(currentPassword, user.password)
+    const passwordsMatch = await compare(currentPassword, user.password as string)
     if (!passwordsMatch) {
       return NextResponse.json(
         { error: 'Current password is incorrect.' },
@@ -46,10 +48,10 @@ export async function PUT(req: NextRequest) {
     }
 
     const hashedPassword = await hash(newPassword, 10)
-    await prisma.user.update({
-      where: { id: session.user.id },
-      data: { password: hashedPassword },
-    })
+    await sql`
+      UPDATE "User" SET password = ${hashedPassword}, "updatedAt" = NOW()
+      WHERE id = ${session.user.id}
+    `
 
     return NextResponse.json({ message: 'Password updated successfully.' })
   } catch (err) {

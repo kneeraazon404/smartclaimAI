@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import prisma from '@/lib/db'
+import { sql } from '@/lib/db'
 import { createPasswordResetToken } from '@/lib/tokens'
 import { sendPasswordResetEmail } from '@/lib/email'
 
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     }
 
     const email = parsed.data.email.toLowerCase().trim()
-    const user = await prisma.user.findUnique({ where: { email } })
+    const [user] = await sql`SELECT id FROM "User" WHERE email = ${email} LIMIT 1`
 
     // Always return the same message regardless of whether the user exists
     if (!user) {

@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hash } from 'bcryptjs'
+import { randomUUID } from 'crypto'
 import { z } from 'zod'
-import prisma from '@/lib/db'
+import { sql } from '@/lib/db'
 import { createVerificationToken } from '@/lib/tokens'
 import { sendVerificationEmail } from '@/lib/email'
 
@@ -29,9 +30,9 @@ export async function POST(req: NextRequest) {
     const { name, email, password } = parsed.data
     const normalizedEmail = email.toLowerCase().trim()
 
-    const existing = await prisma.user.findUnique({
-      where: { email: normalizedEmail },
-    })
+    const [existing] = await sql`
+      SELECT id FROM "User" WHERE email = ${normalizedEmail} LIMIT 1
+    `
 
     if (existing) {
       return NextResponse.json(
@@ -41,15 +42,12 @@ export async function POST(req: NextRequest) {
     }
 
     const hashedPassword = await hash(password, 10)
+    const id = randomUUID()
 
-    await prisma.user.create({
-      data: {
-        name: name.trim(),
-        email: normalizedEmail,
-        password: hashedPassword,
-        // emailVerified is null until the user clicks the verification link
-      },
-    })
+    await sql`
+      INSERT INTO "User" (id, name, email, password, "createdAt", "updatedAt")
+      VALUES (${id}, ${name.trim()}, ${normalizedEmail}, ${hashedPassword}, NOW(), NOW())
+    `
 
     const token = await createVerificationToken(normalizedEmail)
     await sendVerificationEmail(normalizedEmail, token)

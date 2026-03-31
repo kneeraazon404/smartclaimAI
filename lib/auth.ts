@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 import { compare } from 'bcryptjs'
-import prisma from './db'
+import { sql } from './db'
 import { authConfig } from '@/auth.config'
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -17,20 +17,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if (!credentials?.email || !credentials?.password) return null
 
         try {
-          const user = await prisma.user.findUnique({
-            where: { email: credentials.email as string },
-          })
+          const [user] = await sql`
+            SELECT id, name, email, password, "emailVerified"
+            FROM "User"
+            WHERE email = ${credentials.email as string}
+            LIMIT 1
+          `
 
           if (!user?.password) return null
 
           const passwordsMatch = await compare(
             credentials.password as string,
-            user.password
+            user.password as string
           )
 
           if (!passwordsMatch) return null
 
-          return { id: user.id, name: user.name, email: user.email }
+          return {
+            id: user.id as string,
+            name: user.name as string | null,
+            email: user.email as string,
+            emailVerified: user.emailVerified as Date | null,
+          }
         } catch (error) {
           console.error('[AUTH] authorize error:', error)
           return null
@@ -43,7 +51,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id
-        // Store as boolean: true if emailVerified is a Date (truthy), false otherwise
         const dbUser = user as unknown as { emailVerified?: Date | null }
         token.emailVerified = !!dbUser.emailVerified
       }
@@ -52,7 +59,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string
-        // Expose emailVerified on the session user for client-side access
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ;(session.user as any).emailVerified = token.emailVerified ?? false
       }
