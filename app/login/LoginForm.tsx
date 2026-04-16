@@ -5,7 +5,6 @@ import { signIn } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Target, Lock, Mail, ArrowRight, Loader2 } from 'lucide-react'
-import { motion } from 'framer-motion'
 
 function LoginFormInner() {
   const searchParams = useSearchParams()
@@ -40,11 +39,8 @@ function LoginFormInner() {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="w-full max-w-md bg-white dark:bg-gray-900 rounded-3xl shadow-xl dark:shadow-2xl border border-gray-100 dark:border-gray-800 p-8"
-    >
+    <div className="animate-fade-in-up w-full max-w-md bg-white dark:bg-gray-900 rounded-3xl shadow-xl dark:shadow-2xl border border-gray-100 dark:border-gray-800 p-8">
+
       <div className="flex flex-col items-center justify-center space-y-3 mb-8">
         <div className="bg-emerald-100 dark:bg-emerald-900/40 p-3 rounded-2xl flex items-center justify-center" aria-hidden="true">
           <Target className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
@@ -131,7 +127,7 @@ function LoginFormInner() {
           SmartClaimAI is currently in closed evaluation mode.
         </p>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Target, Mail, Lock, User, ArrowRight, Loader2 } from 'lucide-react'
-import { motion } from 'framer-motion'
 
 export default function RegisterForm() {
   const router = useRouter()
@@ -52,11 +51,8 @@ export default function RegisterForm() {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="w-full max-w-md bg-white dark:bg-gray-900 rounded-3xl shadow-xl dark:shadow-2xl border border-gray-100 dark:border-gray-800 p-8"
-    >
+    <div className="animate-fade-in-up w-full max-w-md bg-white dark:bg-gray-900 rounded-3xl shadow-xl dark:shadow-2xl border border-gray-100 dark:border-gray-800 p-8">
+
       <div className="flex flex-col items-center space-y-3 mb-8">
         <div className="bg-emerald-100 dark:bg-emerald-900/40 p-3 rounded-2xl" aria-hidden="true">
           <Target className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
@@ -168,6 +164,6 @@ export default function RegisterForm() {
           Sign in
         </Link>
       </p>
-    </motion.div>
+    </div>
   )
 }

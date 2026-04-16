@@ -2,6 +2,8 @@ export interface Field {
   name: string
   label: string
   type: 'yn' | 'yn_na' | 'text' | 'date'
+  /** Optional clinical hint shown as a tooltip on the form field */
+  hint?: string
 }
 
 export interface ChecklistSection {
@@ -15,4 +17,4 @@ export interface EvaluationResult {
   }
 }
 
-export type RawFormData = Record<string, any>
+export type RawFormData = Record<string, string>

@@ -5,12 +5,17 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import SessionWrapper from '@/components/SessionWrapper'
-import { JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
+
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const jetbrainsMono = JetBrains_Mono({
   variable: '--font-mono',
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
   display: 'swap',
 })
 
@@ -33,6 +38,8 @@ export const metadata: Metadata = {
     'skin substitutes',
     'CTP guidelines',
     'healthcare AI',
+    'claim denial prevention',
+    'wound care checklist',
   ],
   authors: [{ name: 'SmartClaimAI' }],
   creator: 'SmartClaimAI',
@@ -54,10 +61,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
+    googleBot: { index: true, follow: true },
   },
   icons: {
     icon: [
@@ -70,13 +74,43 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'SmartClaimAI',
+  applicationCategory: 'MedicalApplication',
+  operatingSystem: 'Web',
+  url: siteUrl,
+  description:
+    'AI-powered wound care compliance tool that evaluates clinical documentation against CMS Medicare LCD L35041 guidelines.',
+  provider: {
+    '@type': 'Organization',
+    name: 'SmartClaimAI',
+    url: siteUrl,
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+  },
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={jetbrainsMono.variable}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${jetbrainsMono.variable}`}
+    >
       <body
         suppressHydrationWarning
-        className={`${jetbrainsMono.className} bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col font-mono`}
+        className="font-sans bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col"
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <SessionWrapper>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <ToasterClient />

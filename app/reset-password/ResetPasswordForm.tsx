@@ -4,7 +4,6 @@ import { useState, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Lock, ArrowRight, Loader2, CheckCircle } from 'lucide-react'
-import { motion } from 'framer-motion'
 
 function ResetPasswordInner() {
   const searchParams = useSearchParams()
@@ -143,14 +142,10 @@ function ResetPasswordInner() {
 
 export default function ResetPasswordForm() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="w-full max-w-md bg-white dark:bg-gray-900 rounded-3xl shadow-xl dark:shadow-2xl border border-gray-100 dark:border-gray-800 p-8"
-    >
+    <div className="animate-fade-in-up w-full max-w-md bg-white dark:bg-gray-900 rounded-3xl shadow-xl dark:shadow-2xl border border-gray-100 dark:border-gray-800 p-8">
       <Suspense fallback={<Loader2 className="w-8 h-8 animate-spin text-emerald-600 mx-auto block" aria-label="Loading" />}>
         <ResetPasswordInner />
       </Suspense>
-    </motion.div>
+    </div>
   )
 }
