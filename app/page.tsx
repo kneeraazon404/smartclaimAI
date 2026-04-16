@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle,
@@ -8,79 +8,78 @@ import {
   ClipboardList,
   BarChart3,
   Brain,
-} from 'lucide-react'
-import type { Metadata } from 'next'
-import ChatWidgetLoader from '@/components/ChatWidgetLoader'
+} from "lucide-react";
+import type { Metadata } from "next";
+import ChatWidgetLoader from "@/components/ChatWidgetLoader";
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'SmartClaimAI — AI-Powered Wound Care Compliance',
+    absolute: "SmartClaimAI — AI-Powered Wound Care Compliance",
   },
   description:
-    'Instantly evaluate wound care checklists against CMS Medicare LCD L35041 guidelines. AI-powered compliance analysis for wound care providers — secure, rapid, and accurate.',
+    "Instantly evaluate wound care checklists against CMS Medicare LCD L35041 guidelines. AI-powered compliance analysis for wound care providers — secure, rapid, and accurate.",
   openGraph: {
-    title: 'SmartClaimAI — AI-Powered Wound Care Compliance',
+    title: "SmartClaimAI — AI-Powered Wound Care Compliance",
     description:
-      'Instantly evaluate wound care checklists against CMS Medicare LCD L35041 guidelines. Secure, rapid, and accurate.',
+      "Instantly evaluate wound care checklists against CMS Medicare LCD L35041 guidelines. Secure, rapid, and accurate.",
   },
-}
+};
 
 const trustIndicators = [
-  { label: 'GPT-4o Powered', icon: Brain },
-  { label: 'CMS LCD L35041', icon: ShieldCheck },
-  { label: 'HIPAA Data Practices', icon: CheckCircle },
-  { label: 'Field-Level Feedback', icon: BarChart3 },
-]
+  { label: "LLM Powered", icon: Brain },
+  { label: "CMS LCD L35041", icon: ShieldCheck },
+  { label: "HIPAA Data Practices", icon: CheckCircle },
+  { label: "Field-Level Feedback", icon: BarChart3 },
+];
 
 const steps = [
   {
-    number: '01',
+    number: "01",
     icon: ClipboardList,
-    title: 'Fill the Wizard',
+    title: "Fill the Wizard",
     description:
-      'Enter clinical data across structured categories: wound type, duration, conservative care history, diagnostics, and more.',
+      "Enter clinical data across structured categories: wound type, duration, conservative care history, diagnostics, and more.",
   },
   {
-    number: '02',
+    number: "02",
     icon: Brain,
-    title: 'AI Evaluates in Seconds',
+    title: "AI Evaluates in Seconds",
     description:
-      'GPT-4o cross-references every field against strict Medicare LCD requirements, applying the same criteria payers use to adjudicate claims.',
+      "LLM cross-references every field against strict Medicare LCD requirements, applying the same criteria payers use to adjudicate claims.",
   },
   {
-    number: '03',
+    number: "03",
     icon: FileSearch,
-    title: 'Review & Act on Results',
+    title: "Review & Act on Results",
     description:
-      'Get an instant compliance report with field-level pass/fail status and clinical reasoning. Fix deficiencies before billing.',
+      "Get an instant compliance report with field-level pass/fail status and clinical reasoning. Fix deficiencies before billing.",
   },
-]
+];
 
 const features = [
   {
     icon: Zap,
-    title: 'Instant AI Analysis',
+    title: "Instant AI Analysis",
     description:
-      'Drop clinical notes directly into our structured wizard. GPT-4o processes each field in seconds, immediately flagging missing or non-compliant documentation.',
+      "Drop clinical notes directly into our structured wizard. LLM processes each field in seconds, immediately flagging missing or non-compliant documentation.",
   },
   {
     icon: ShieldCheck,
-    title: 'CMS LCD Compliant',
+    title: "CMS LCD Compliant",
     description:
-      'Built strictly around CMS Medicare LCD Novitas guidelines for Skin Substitutes and CTPs (L35041). Every evaluation criterion maps directly to a published requirement.',
+      "Built strictly around CMS Medicare LCD Novitas guidelines for Skin Substitutes and CTPs (L35041). Every evaluation criterion maps directly to a published requirement.",
   },
   {
     icon: CheckCircle,
-    title: 'Actionable Field Feedback',
+    title: "Actionable Field Feedback",
     description:
       "Don't just get a pass or fail. Receive precise per-field highlighting and clinical reasoning explaining exactly what requirement was missed and why.",
   },
-]
+];
 
 export default function Home() {
   return (
     <div className="flex flex-col w-full">
-
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative w-full pt-20 pb-28 flex flex-col items-center justify-center text-center px-4 sm:px-6 overflow-hidden">
         {/* Background gradient */}
@@ -93,8 +92,8 @@ export default function Home() {
           className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.06]"
           style={{
             backgroundImage:
-              'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(to right, #10b981 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
+              "linear-gradient(#10b981 1px, transparent 1px), linear-gradient(to right, #10b981 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
           }}
           aria-hidden="true"
         />
@@ -105,13 +104,16 @@ export default function Home() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6 max-w-4xl leading-tight">
-          Stop Claim Denials{' '}
-          <span className="text-emerald-600 dark:text-emerald-500">Before They Start</span>
+          Stop Claim Denials{" "}
+          <span className="text-emerald-600 dark:text-emerald-500">
+            Before They Start
+          </span>
         </h1>
 
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl leading-relaxed">
-          SmartClaimAI evaluates wound care documentation against CMS Medicare LCD guidelines in
-          seconds — giving instant, field-level compliance feedback before you bill.
+          SmartClaimAI evaluates wound care documentation against CMS Medicare
+          LCD guidelines in seconds — giving instant, field-level compliance
+          feedback before you bill.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -140,7 +142,10 @@ export default function Home() {
         className="w-full border-y border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/30 py-5"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <ul className="flex flex-wrap justify-center gap-x-8 gap-y-4" role="list">
+          <ul
+            className="flex flex-wrap justify-center gap-x-8 gap-y-4"
+            role="list"
+          >
             {trustIndicators.map(({ label, icon: Icon }) => (
               <li
                 key={label}
@@ -172,7 +177,8 @@ export default function Home() {
               Three Steps to Compliance Confidence
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-              From raw clinical notes to a verified, submission-ready evaluation in under a minute.
+              From raw clinical notes to a verified, submission-ready evaluation
+              in under a minute.
             </p>
           </div>
 
@@ -184,7 +190,10 @@ export default function Home() {
             />
 
             {steps.map((step, index) => (
-              <div key={step.number} className="relative flex flex-col items-center text-center">
+              <div
+                key={step.number}
+                className="relative flex flex-col items-center text-center"
+              >
                 {/* Step number + icon */}
                 <div className="relative mb-6">
                   <div className="w-20 h-20 rounded-2xl bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100 dark:border-emerald-800 flex items-center justify-center">
@@ -227,8 +236,8 @@ export default function Home() {
               Why Providers Choose SmartClaimAI
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Purpose-built by clinicians and engineers to eliminate the guesswork in wound care
-              billing compliance.
+              Purpose-built by clinicians and engineers to eliminate the
+              guesswork in wound care billing compliance.
             </p>
           </div>
 
@@ -263,8 +272,8 @@ export default function Home() {
             Ready to Eliminate Claim Denials?
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto">
-            Experience the confidence of zero-gap documentation. No commitment required — start
-            your first evaluation now.
+            Experience the confidence of zero-gap documentation. No commitment
+            required — start your first evaluation now.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -289,5 +298,5 @@ export default function Home() {
 
       <ChatWidgetLoader />
     </div>
-  )
+  );
 }

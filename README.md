@@ -1,10 +1,10 @@
 # SmartClaimAI
 
-An AI-powered clinical compliance assistant for wound care providers. Evaluates wound care checklists against CMS Medicare LCD L35041 guidelines using GPT-4o structured output, delivering instant field-level pass/fail feedback with clinical reasoning.
+An AI-powered clinical compliance assistant for wound care providers. Evaluates wound care checklists against CMS Medicare LCD L35041 guidelines using LLM structured output, delivering instant field-level pass/fail feedback with clinical reasoning.
 
 ## Features
 
-- **AI Evaluation** — GPT-4o evaluates every checklist field against Medicare LCD Novitas guidelines for Skin Substitutes and CTPs
+- **AI Evaluation** — LLM evaluates every checklist field against Medicare LCD Novitas guidelines for Skin Substitutes and CTPs
 - **Multi-step Wizard** — Structured form with per-step validation (react-hook-form + Zod), Y/N toggle buttons, and contextual help tooltips
 - **Evaluation Summary** — Instant compliance report with pass rate, progress bar, and grouped failure list
 - **Form Draft Persistence** — Auto-saves progress to localStorage; restores session on reload
@@ -27,7 +27,7 @@ An AI-powered clinical compliance assistant for wound care providers. Evaluates 
 | Auth | Auth.js v5 (NextAuth), bcryptjs |
 | Database | Neon PostgreSQL (via `@neondatabase/serverless`) |
 | ORM/Schema | Prisma (schema management + `prisma generate`) |
-| AI Evaluation | OpenAI GPT-4o (structured output via Zod) |
+| AI Evaluation | OpenAI LLM (structured output via Zod) |
 | AI Chat | Vercel AI SDK + Anthropic Claude |
 | Email | Resend (transactional) |
 | Storage | Supabase (evaluation result persistence) |
@@ -62,7 +62,7 @@ AUTH_URL="https://your-domain.vercel.app"
 NEXT_PUBLIC_SUPABASE_URL="https://your-project.supabase.co"
 NEXT_PUBLIC_SUPABASE_ANON_KEY="your-anon-key"
 
-# OpenAI — for wound checklist evaluation (GPT-4o)
+# OpenAI — for wound checklist evaluation (LLM)
 OPENAI_API_KEY="sk-..."
 
 # Anthropic — for the homepage chat assistant
@@ -157,7 +157,7 @@ yarn start
 
 | Route | Auth | Description |
 |---|---|---|
-| `POST /api/evaluate` | ✅ Required | GPT-4o wound checklist evaluation |
+| `POST /api/evaluate` | ✅ Required | LLM wound checklist evaluation |
 | `POST /api/chat` | ✗ Public | Streaming AI chat (Anthropic) |
 | `POST /api/contact` | ✗ Public | Contact form → Resend email |
 | `POST /api/auth/register` | ✗ | Create account |
@@ -226,7 +226,7 @@ Applied globally via `next.config.ts`:
 | `AUTH_URL` | Production | Full URL for NextAuth callbacks |
 | `NEXT_PUBLIC_SUPABASE_URL` | Yes | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Yes | Supabase anon/public key |
-| `OPENAI_API_KEY` | Yes | OpenAI API key (GPT-4o evaluation) |
+| `OPENAI_API_KEY` | Yes | OpenAI API key (LLM evaluation) |
 | `ANTHROPIC_API_KEY` | Yes | Anthropic API key (chat assistant) |
 | `RESEND_API_KEY` | Optional | Resend API key (emails). Without it, emails log to console. |
 | `EMAIL_FROM` | Optional | Sender address. Default: `SmartClaimAI <noreply@smartclaimai.com>` |

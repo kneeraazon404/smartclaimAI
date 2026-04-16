@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import * as React from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { toast } from 'react-hot-toast'
+import * as React from "react";
+import { useForm, FormProvider } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-hot-toast";
 import {
   Loader2,
   ArrowRight,
@@ -14,49 +14,49 @@ import {
   RotateCcw,
   Printer,
   ChevronRight,
-} from 'lucide-react'
+} from "lucide-react";
 
-import { checklistSchema, ChecklistFormValues } from '@/lib/schemas'
-import { CHECKLIST_SECTIONS } from '@/lib/constants'
-import { EvaluationResult } from '@/types/checklist'
-import { StepIndicator } from './StepIndicator'
-import { WizardStep } from './WizardStep'
-import { cn } from '@/lib/utils'
+import { checklistSchema, ChecklistFormValues } from "@/lib/schemas";
+import { CHECKLIST_SECTIONS } from "@/lib/constants";
+import { EvaluationResult } from "@/types/checklist";
+import { StepIndicator } from "./StepIndicator";
+import { WizardStep } from "./WizardStep";
+import { cn } from "@/lib/utils";
 
-const DRAFT_KEY = 'smartclaim_checklist_draft'
+const DRAFT_KEY = "smartclaim_checklist_draft";
 
 // ── Evaluation summary helpers ────────────────────────────────────────────────
 
 interface SummaryFailure {
-  section: string
-  fieldName: string
-  label: string
-  reason: string
+  section: string;
+  fieldName: string;
+  label: string;
+  reason: string;
 }
 
 function computeSummary(evaluation: EvaluationResult) {
-  const entries = Object.entries(evaluation)
-  const total = entries.length
-  const passed = entries.filter(([, v]) => v.status === 'pass').length
-  const failed = total - passed
-  const passRate = total > 0 ? Math.round((passed / total) * 100) : 0
+  const entries = Object.entries(evaluation);
+  const total = entries.length;
+  const passed = entries.filter(([, v]) => v.status === "pass").length;
+  const failed = total - passed;
+  const passRate = total > 0 ? Math.round((passed / total) * 100) : 0;
 
-  const failures: SummaryFailure[] = []
+  const failures: SummaryFailure[] = [];
   for (const [sectionName, fields] of Object.entries(CHECKLIST_SECTIONS)) {
     for (const field of fields) {
-      const result = evaluation[field.name]
-      if (result?.status === 'fail') {
+      const result = evaluation[field.name];
+      if (result?.status === "fail") {
         failures.push({
           section: sectionName,
           fieldName: field.name,
           label: field.label,
           reason: result.reason,
-        })
+        });
       }
     }
   }
 
-  return { total, passed, failed, passRate, failures }
+  return { total, passed, failed, passRate, failures };
 }
 
 // ── Evaluation Summary Card ───────────────────────────────────────────────────
@@ -66,25 +66,26 @@ function EvaluationSummaryCard({
   onNewEvaluation,
   onPrint,
 }: {
-  evaluation: EvaluationResult
-  onNewEvaluation: () => void
-  onPrint: () => void
+  evaluation: EvaluationResult;
+  onNewEvaluation: () => void;
+  onPrint: () => void;
 }) {
-  const { total, passed, failed, passRate, failures } = computeSummary(evaluation)
+  const { total, passed, failed, passRate, failures } =
+    computeSummary(evaluation);
 
   const statusColor =
     passRate === 100
-      ? 'text-emerald-700 dark:text-emerald-400'
+      ? "text-emerald-700 dark:text-emerald-400"
       : passRate >= 75
-        ? 'text-amber-700 dark:text-amber-400'
-        : 'text-red-700 dark:text-red-400'
+        ? "text-amber-700 dark:text-amber-400"
+        : "text-red-700 dark:text-red-400";
 
   const barColor =
     passRate === 100
-      ? 'bg-emerald-500'
+      ? "bg-emerald-500"
       : passRate >= 75
-        ? 'bg-amber-500'
-        : 'bg-red-500'
+        ? "bg-amber-500"
+        : "bg-red-500";
 
   return (
     <div className="mb-8 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm overflow-hidden print-section">
@@ -100,7 +101,9 @@ function EvaluationSummaryCard({
         </div>
 
         {/* Score pill */}
-        <div className={cn('text-4xl font-extrabold tabular-nums', statusColor)}>
+        <div
+          className={cn("text-4xl font-extrabold tabular-nums", statusColor)}
+        >
           {passRate}
           <span className="text-lg font-semibold">%</span>
         </div>
@@ -118,7 +121,10 @@ function EvaluationSummaryCard({
           </div>
           <div className="h-2.5 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
             <div
-              className={cn('h-full rounded-full transition-all duration-700 ease-out', barColor)}
+              className={cn(
+                "h-full rounded-full transition-all duration-700 ease-out",
+                barColor,
+              )}
               style={{ width: `${passRate}%` }}
               role="progressbar"
               aria-valuenow={passRate}
@@ -184,8 +190,8 @@ function EvaluationSummaryCard({
               aria-hidden="true"
             />
             <p className="text-sm font-medium text-emerald-800 dark:text-emerald-300">
-              All criteria passed — your documentation appears compliant with CMS LCD L35041
-              requirements.
+              All criteria passed — your documentation appears compliant with
+              CMS LCD L35041 requirements.
             </p>
           </div>
         )}
@@ -211,157 +217,163 @@ function EvaluationSummaryCard({
         </button>
       </div>
     </div>
-  )
+  );
 }
 
 // ── Checklist Wizard ──────────────────────────────────────────────────────────
 
 export const ChecklistWizard = () => {
-  const steps = Object.keys(CHECKLIST_SECTIONS)
-  const [currentStepIndex, setCurrentStepIndex] = React.useState(0)
-  const [loading, setLoading] = React.useState(false)
-  const [result, setResult] = React.useState<{ evaluation: EvaluationResult } | null>(null)
-  const [showProModal, setShowProModal] = React.useState(false)
-  const wizardRef = React.useRef<HTMLDivElement>(null)
+  const steps = Object.keys(CHECKLIST_SECTIONS);
+  const [currentStepIndex, setCurrentStepIndex] = React.useState(0);
+  const [loading, setLoading] = React.useState(false);
+  const [result, setResult] = React.useState<{
+    evaluation: EvaluationResult;
+  } | null>(null);
+  const [showProModal, setShowProModal] = React.useState(false);
+  const wizardRef = React.useRef<HTMLDivElement>(null);
 
   const methods = useForm<ChecklistFormValues>({
     resolver: zodResolver(checklistSchema),
-    mode: 'onTouched',
+    mode: "onTouched",
     defaultValues: {},
-  })
+  });
 
-  const { handleSubmit, trigger } = methods
+  const { handleSubmit, trigger } = methods;
 
   // ── Feature: Draft persistence ────────────────────────────────────────────
 
   // Restore saved draft on mount
   React.useEffect(() => {
     try {
-      const saved = localStorage.getItem(DRAFT_KEY)
-      if (!saved) return
-      const data = JSON.parse(saved) as Record<string, string>
-      const hasData = Object.values(data).some((v) => v !== '' && v !== undefined && v !== null)
+      const saved = localStorage.getItem(DRAFT_KEY);
+      if (!saved) return;
+      const data = JSON.parse(saved) as Record<string, string>;
+      const hasData = Object.values(data).some(
+        (v) => v !== "" && v !== undefined && v !== null,
+      );
       if (hasData) {
-        methods.reset(data)
-        toast.success('Previous session restored.', {
-          id: 'draft-restored',
+        methods.reset(data);
+        toast.success("Previous session restored.", {
+          id: "draft-restored",
           duration: 4000,
-          icon: '📋',
-        })
+          icon: "📋",
+        });
       }
     } catch {
       // invalid JSON or unavailable localStorage — silent
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   // Save draft on every form change (debounced via React batching)
   React.useEffect(() => {
     const subscription = methods.watch((data) => {
       try {
-        localStorage.setItem(DRAFT_KEY, JSON.stringify(data))
+        localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
       } catch {
         // quota exceeded or private mode — silent
       }
-    })
-    return () => subscription.unsubscribe()
-  }, [methods])
+    });
+    return () => subscription.unsubscribe();
+  }, [methods]);
 
   // ── Navigation ────────────────────────────────────────────────────────────
 
-  const isLastStep = currentStepIndex === steps.length - 1
-  const isFirstStep = currentStepIndex === 0
-  const currentCategory = steps[currentStepIndex]
-  const currentFields = CHECKLIST_SECTIONS[currentCategory]
+  const isLastStep = currentStepIndex === steps.length - 1;
+  const isFirstStep = currentStepIndex === 0;
+  const currentCategory = steps[currentStepIndex];
+  const currentFields = CHECKLIST_SECTIONS[currentCategory];
 
   const scrollToTop = () => {
-    wizardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+    wizardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const nextStep = async () => {
-    const fieldsToValidate = currentFields.map((f) => f.name as keyof ChecklistFormValues)
-    const isStepValid = await trigger(fieldsToValidate)
+    const fieldsToValidate = currentFields.map(
+      (f) => f.name as keyof ChecklistFormValues,
+    );
+    const isStepValid = await trigger(fieldsToValidate);
     if (isStepValid) {
-      setCurrentStepIndex((prev) => Math.min(prev + 1, steps.length - 1))
-      scrollToTop()
+      setCurrentStepIndex((prev) => Math.min(prev + 1, steps.length - 1));
+      scrollToTop();
     }
-  }
+  };
 
   const prevStep = () => {
-    setCurrentStepIndex((prev) => Math.max(prev - 1, 0))
-    scrollToTop()
-  }
+    setCurrentStepIndex((prev) => Math.max(prev - 1, 0));
+    scrollToTop();
+  };
 
   const normalizeValue = (value?: string): string => {
-    const v = value?.toLowerCase().trim()
-    if (v === 'y' || v === 'yes') return 'yes'
-    if (v === 'n' || v === 'no') return 'no'
-    if (v === 'na') return 'na'
-    return value ?? ''
-  }
+    const v = value?.toLowerCase().trim();
+    if (v === "y" || v === "yes") return "yes";
+    if (v === "n" || v === "no") return "no";
+    if (v === "na") return "na";
+    return value ?? "";
+  };
 
   // ── Submit ────────────────────────────────────────────────────────────────
 
   const onSubmit = async (data: ChecklistFormValues) => {
-    setLoading(true)
+    setLoading(true);
 
-    const payload: Record<string, string> = { username: 'admin' }
+    const payload: Record<string, string> = { username: "admin" };
     Object.values(CHECKLIST_SECTIONS)
       .flat()
       .forEach(({ name, type }) => {
-        const raw = data[name as keyof ChecklistFormValues]
-        if (type === 'yn' || type === 'yn_na') {
-          payload[name] = normalizeValue(raw)
+        const raw = data[name as keyof ChecklistFormValues];
+        if (type === "yn" || type === "yn_na") {
+          payload[name] = normalizeValue(raw);
         } else {
-          payload[name] = raw ?? ''
+          payload[name] = raw ?? "";
         }
-      })
+      });
 
     try {
-      const response = await fetch('/api/evaluate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/evaluate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
-      })
+      });
 
-      const responseData = await response.json()
+      const responseData = await response.json();
 
       if (!response.ok) {
-        setShowProModal(true)
-        return
+        setShowProModal(true);
+        return;
       }
 
-      setResult(responseData)
-      toast.success('Evaluation completed!', { duration: 4000 })
+      setResult(responseData);
+      toast.success("Evaluation completed!", { duration: 4000 });
       // Clear draft after successful evaluation
       try {
-        localStorage.removeItem(DRAFT_KEY)
+        localStorage.removeItem(DRAFT_KEY);
       } catch {}
-      scrollToTop()
+      scrollToTop();
     } catch {
-      setShowProModal(true)
+      setShowProModal(true);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   // ── New evaluation ────────────────────────────────────────────────────────
 
   const handleNewEvaluation = () => {
-    setResult(null)
-    setCurrentStepIndex(0)
-    methods.reset({})
+    setResult(null);
+    setCurrentStepIndex(0);
+    methods.reset({});
     try {
-      localStorage.removeItem(DRAFT_KEY)
+      localStorage.removeItem(DRAFT_KEY);
     } catch {}
-    scrollToTop()
-  }
+    scrollToTop();
+  };
 
   // ── Print ─────────────────────────────────────────────────────────────────
 
   const handlePrint = () => {
-    window.print()
-  }
+    window.print();
+  };
 
   // ── Render ────────────────────────────────────────────────────────────────
 
@@ -379,12 +391,15 @@ export const ChecklistWizard = () => {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
         >
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 flex flex-col items-center max-w-sm w-full mx-4 border border-gray-100 dark:border-gray-700">
-            <Loader2 className="animate-spin h-12 w-12 text-emerald-600 dark:text-emerald-500 mb-4" aria-hidden="true" />
+            <Loader2
+              className="animate-spin h-12 w-12 text-emerald-600 dark:text-emerald-500 mb-4"
+              aria-hidden="true"
+            />
             <p className="text-gray-900 dark:text-white font-semibold text-lg text-center">
               Evaluating checklist…
             </p>
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 text-center">
-              GPT-4o is analyzing your documentation against LCD requirements.
+              LLM is analyzing your documentation against LCD requirements.
             </p>
           </div>
         </div>
@@ -406,13 +421,13 @@ export const ChecklistWizard = () => {
               Pro Version Required
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Our free evaluation tier has reached capacity. Please{' '}
+              Our free evaluation tier has reached capacity. Please{" "}
               <a
                 href="/contact"
                 className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
               >
                 contact us
-              </a>{' '}
+              </a>{" "}
               to request access to the Pro version.
             </p>
             <button
@@ -436,7 +451,11 @@ export const ChecklistWizard = () => {
 
       {/* Form */}
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8" noValidate>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-8"
+          noValidate
+        >
           <StepIndicator steps={steps} currentStep={currentStepIndex} />
 
           <div className="min-h-[400px]">
@@ -492,5 +511,5 @@ export const ChecklistWizard = () => {
         </form>
       </FormProvider>
     </div>
-  )
-}
+  );
+};
